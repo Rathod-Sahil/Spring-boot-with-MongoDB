@@ -1,16 +1,14 @@
-package com.first.Service;
+package com.first.service;
 
-import com.first.Entity.Student;
-import org.springframework.ui.Model;
+import com.first.model.Student;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface StudentService {
 
     Student createStudent(Student student);
 
-    Optional<Student> getStudent(String id);
+    Student getStudent(String id);
 
     List<Student> getAllStudents();
 

@@ -1,4 +1,4 @@
-package com.first.Entity;
+package com.first.model;
 
 
 import lombok.*;

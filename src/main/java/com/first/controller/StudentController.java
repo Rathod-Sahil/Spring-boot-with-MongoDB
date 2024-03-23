@@ -1,13 +1,12 @@
-package com.first.Controller;
+package com.first.controller;
 
-import com.first.Entity.Student;
-import com.first.Repository.StudentRepository;
-import com.first.Service.StudentService;
+import com.first.model.Student;
+import com.first.repository.StudentRepository;
+import com.first.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("/student")
 @RestController
@@ -22,27 +21,27 @@ public class StudentController {
         this.repository = repository;
     }
 
-    @PostMapping
+    @PostMapping(name = "Create new student")
     public Student createStudent(@RequestBody  Student student){
         return studentService.createStudent(student);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Student>> getStudent(@PathVariable String id){
-        Optional<Student> student = studentService.getStudent(id);
+    @GetMapping(value = "/{id}",name = "Find a student")
+    public ResponseEntity<Student> getStudent(@PathVariable String id){
+        Student student = studentService.getStudent(id);
         return ResponseEntity.ok(student);
     }
 
-    @GetMapping
+    @GetMapping(name = "Find all students")
     public List<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}",name = "Delete student")
     public void deleteStudent(@PathVariable String id){
        studentService.deleteStudent(id);
     }
 
-    @PutMapping
+    @PutMapping(name = "Update student")
     public Student updateStudent(@RequestBody Student student){
         return studentService.updateStudent(student);
     }

@@ -1,8 +1,8 @@
-package com.first.Exception;
+package com.first.exception;
 
 public class StudentIsNotExisted extends RuntimeException {
     public StudentIsNotExisted(){
-        super("Student with given id is not existed in database");
+        super("Student is not found");
     }
 
     public StudentIsNotExisted(String message){

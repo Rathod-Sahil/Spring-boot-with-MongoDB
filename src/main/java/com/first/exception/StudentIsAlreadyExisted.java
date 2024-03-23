@@ -1,9 +1,9 @@
-package com.first.Exception;
+package com.first.exception;
 
 public class StudentIsAlreadyExisted extends RuntimeException {
 
     public StudentIsAlreadyExisted(){
-        super("Student with given email id is already existed in database");
+        super("Student is already existed");
     }
 
     public StudentIsAlreadyExisted(String message){
