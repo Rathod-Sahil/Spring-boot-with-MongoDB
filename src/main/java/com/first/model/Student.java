@@ -1,6 +1,7 @@
 package com.first.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,5 +22,6 @@ public class Student {
     private String password;
     private String city;
     private long phoneNo;
+    @JsonIgnore
     private boolean softDelete;
 }
