@@ -2,15 +2,12 @@ package com.first.model;
 
 import lombok.*;
 
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Setter
-@Getter
-public class DataResponse {
+public class DataResponse<T> {
 
-    private Student data;
+    private T data;
     private Response response;
 
 }

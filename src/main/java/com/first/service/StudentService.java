@@ -1,19 +1,19 @@
 package com.first.service;
 
+import com.first.model.StudentDTO;
 import com.first.model.Student;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface StudentService {
 
-    Student createStudent(Student student);
+    Student createStudent(StudentDTO student);
 
-    Optional<Student> getStudent(String id);
+    Student getStudent(String id);
 
     List<Student> getAllStudents();
 
     void deleteStudent(String id);
 
-    Student updateStudent(Student student);
+    Student updateStudent(StudentDTO student, String id);
 }

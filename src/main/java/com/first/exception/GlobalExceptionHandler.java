@@ -26,4 +26,5 @@ public class GlobalExceptionHandler {
         pd.setDetail("Student with given email is not existed");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(pd);
     }
+
 }

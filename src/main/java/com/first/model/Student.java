@@ -1,17 +1,17 @@
 package com.first.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Document("students")
-@Setter
-@Getter
 public class Student {
 
    @Id
@@ -21,7 +21,9 @@ public class Student {
     private String email;
     private String password;
     private String city;
-    private long phoneNo;
+    private String phoneNo;
     @JsonIgnore
     private boolean softDelete;
+    private List<Roles> role;
+    private Status status;
 }

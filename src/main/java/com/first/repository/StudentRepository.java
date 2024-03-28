@@ -9,10 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface StudentRepository extends MongoRepository<Student,String> {
-
-    Optional<Student> findByEmail(String email);
-
+    Student findByEmailAndSoftDeleteFalse(String email);
     Optional<Student> findBySoftDeleteFalseAndId(String id);
     List<Student> findBySoftDeleteFalse();
-
 }
