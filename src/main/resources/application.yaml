@@ -6,3 +6,27 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: MongoQueries
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kira3092650@gmail.com
+    password: aqngcvjpnusuyrwe
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    queue:
+      name: myQueue1
+    exchange:
+      name: myExchange
+    routing-key: myRoutingKey
+
+

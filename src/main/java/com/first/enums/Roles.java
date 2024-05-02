@@ -1,4 +1,4 @@
-package com.first.model;
+package com.first.enums;
 
 public enum Roles {
     ADMIN,

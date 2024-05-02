@@ -1,4 +1,4 @@
-package com.first.model;
+package com.first.decorator;
 
 import lombok.*;
 

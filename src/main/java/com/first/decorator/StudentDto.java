@@ -1,8 +1,6 @@
-package com.first.model;
+package com.first.decorator;
 
-import com.first.model.Roles;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
+import com.first.enums.Roles;
 import lombok.*;
 
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDTO {
+public class StudentDto {
 
     String firstName;
     String lastName;
