@@ -1,5 +1,6 @@
 package com.first.decorator;
 
+import com.first.helper.Response;
 import lombok.*;
 
 @Data

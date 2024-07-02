@@ -1,11 +1,10 @@
 package com.first.exception;
 
-import com.first.decorator.MessageConstants;
+import com.first.constant.MessageConstants;
 import com.first.decorator.DataResponse;
-import com.first.decorator.Response;
+import com.first.helper.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -14,58 +13,53 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(StudentIsAlreadyExisted.class)
-    DataResponse<Object> studentAlreadyExisted(StudentIsAlreadyExisted exception) {
+    @ExceptionHandler(StudentExistedException.class)
+    DataResponse<Object> studentExistedException(StudentExistedException exception) {
         return new DataResponse<>(null, Response.getConflictResponse(exception.getMessage()));
     }
 
-    @ExceptionHandler(StudentIsNotExisted.class)
-    DataResponse<Object> studentNotFound(StudentIsNotExisted exception) {
+    @ExceptionHandler(StudentNotExistedException.class)
+    DataResponse<Object> studentNotExistedException(StudentNotExistedException exception) {
         return new DataResponse<>(null, Response.getNotFoundResponse(exception.getMessage()));
     }
 
-    @ExceptionHandler(AdminCanNotBeDeleted.class)
-    DataResponse<Object> adminCanNotBeDeletedExeption(AdminCanNotBeDeleted exception) {
+    @ExceptionHandler(AdminDeletionException.class)
+    DataResponse<Object> adminDeletionException(AdminDeletionException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage()));
     }
 
     @ExceptionHandler(StudentValidationException.class)
-    DataResponse<Object> studentNotValidatated(StudentValidationException exception) {
+    DataResponse<Object> studentValidationException(StudentValidationException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage()));
     }
 
     @ExceptionHandler(WrongPasswordException.class)
-    DataResponse<Object> wrongPassword(WrongPasswordException exception) {
+    DataResponse<Object> wrongPasswordException(WrongPasswordException exception) {
         return new DataResponse<>(null, Response.getUnauthorizedResponse(exception.getMessage()));
     }
 
-    @ExceptionHandler(OTPNotMatchedException.class)
-    DataResponse<Object> wrongOTP(OTPNotMatchedException exception) {
+    @ExceptionHandler(WrongOTPException.class)
+    DataResponse<Object> wrongOTPException(WrongOTPException exception) {
         return new DataResponse<>(null, Response.getUnauthorizedResponse(exception.getMessage()));
     }
 
     @ExceptionHandler(SamePasswordException.class)
-    DataResponse<Object> sameNewPassword(SamePasswordException exception) {
-        return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage()));
-    }
-
-    @ExceptionHandler(PasswordNotMatchException.class)
-    DataResponse<Object> passwordNotMatchedException(PasswordNotMatchException exception) {
+    DataResponse<Object> samePasswordException(SamePasswordException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage()));
     }
 
     @ExceptionHandler(StudentBlockedException.class)
-    DataResponse<Object> studentBlockedExeption(StudentBlockedException exception) {
+    DataResponse<Object> studentBlockedException(StudentBlockedException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage(), MessageConstants.BLOCKED));
     }
 
-    @ExceptionHandler(StudentIsNotBlocked.class)
-    DataResponse<Object> studentIsNotBlockedExeption(StudentIsNotBlocked exception) {
+    @ExceptionHandler(StudentNotBlockedException.class)
+    DataResponse<Object> studentNotBlockedException(StudentNotBlockedException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage()));
     }
 
-    @ExceptionHandler(AdminCanNotBeBlocked.class)
-    DataResponse<Object> adminCanNotBeBlockedExeption(AdminCanNotBeBlocked exception) {
+    @ExceptionHandler(AdminBlockException.class)
+    DataResponse<Object> adminBlockException(AdminBlockException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage()));
     }
 
@@ -74,14 +68,14 @@ public class GlobalExceptionHandler {
         return new DataResponse<>(null, Response.getUnauthorizedResponse(exception.getMessage()));
     }
 
-    @ExceptionHandler(NotAdminException.class)
-    DataResponse<Object> notAdminException(NotAdminException exception) {
-        return new DataResponse<>(null, Response.getUnauthorizedResponse(exception.getMessage()));
-    }
-
     @ExceptionHandler(TokenExpiredException.class)
     DataResponse<Object> tokenExpiredException(TokenExpiredException exception) {
         return new DataResponse<>(null, Response.getBadRequestResponse(exception.getMessage(), MessageConstants.TOKEN_EXPIRED));
+    }
+
+    @ExceptionHandler(FileNotFoundException.class)
+    DataResponse<Object> fileNotFoundException(FileNotFoundException exception) {
+        return new DataResponse<>(null, Response.getNotFoundResponse(exception.getMessage()));
     }
 
     @ExceptionHandler(Exception.class)

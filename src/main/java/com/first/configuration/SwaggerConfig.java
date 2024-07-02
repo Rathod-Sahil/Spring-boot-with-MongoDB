@@ -17,7 +17,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .components(new Components()
-                        .addSecuritySchemes(SCHEME_NAME,new SecurityScheme()
+                        .addSecuritySchemes(SCHEME_NAME, new SecurityScheme()
                                 .name(SCHEME_NAME)
                                 .type(SecurityScheme.Type.HTTP)
                                 .bearerFormat("JWT")

@@ -1,6 +1,6 @@
 package com.first.decorator;
 
-import com.first.enums.Roles;
+import com.first.enums.Role;
 import lombok.*;
 
 import java.util.List;
@@ -16,5 +16,5 @@ public class StudentDto {
     String password;
     String city;
     String phoneNo;
-    List<Roles> role;
+    List<Role> role;
 }

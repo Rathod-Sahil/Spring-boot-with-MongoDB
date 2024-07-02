@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -19,5 +20,8 @@ public class AdminConfig {
     @Id
     private String id;
     private int maxLoginAttempts;
-    private List<String> adminList;
+    private Set<String> adminList;
+    private int maxAccountBlockedDays;
+    private EmailConfig emailConfig;
+    private AggregationConfig aggregationConfig;
 }

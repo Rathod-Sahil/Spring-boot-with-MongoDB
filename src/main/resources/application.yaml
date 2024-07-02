@@ -24,9 +24,18 @@ spring:
     username: guest
     password: guest
     queue:
-      name: myQueue1
+      name: myQueue
     exchange:
       name: myExchange
     routing-key: myRoutingKey
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
 
 

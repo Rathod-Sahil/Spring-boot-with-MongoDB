@@ -1,13 +1,12 @@
 package com.first.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.first.enums.Roles;
-import com.first.enums.Status;
+import com.first.enums.Role;
+import com.first.enums.UserStatus;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
-
 
 import java.time.LocalDate;
 import java.util.List;
@@ -30,13 +29,13 @@ public class Student{
     @JsonIgnore
     private String password;
     @JsonIgnore
-    private Set<String> oldPasswordSet;
+    private Set<String> recentlyUsedPasswords;
     private String city;
     private String phoneNo;
     @JsonIgnore
     private boolean softDelete;
-    private List<Roles> role;
-    private Status status;
+    private List<Role> role;
+    private UserStatus userStatus;
     @JsonIgnore
     private int otp;
     @JsonIgnore

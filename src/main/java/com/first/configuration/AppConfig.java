@@ -2,7 +2,7 @@ package com.first.configuration;
 
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import lombok.RequiredArgsConstructor;
+import org.bson.Document;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -26,15 +26,14 @@ public class AppConfig {
                      @Value("${spring.rabbitmq.username}")
                      String USERNAME,
                      @Value("${spring.rabbitmq.password}")
-                     String PASSWORD)
-    {
+                     String PASSWORD) {
         this.HOST = HOST;
         this.USERNAME = USERNAME;
         this.PASSWORD = PASSWORD;
     }
 
     @Bean
-    public ModelMapper getModelMapper(){
+    public ModelMapper getModelMapper() {
         return new ModelMapper();
     }
 
@@ -51,4 +50,5 @@ public class AppConfig {
         factory.setPassword(PASSWORD);
         return factory.newConnection();
     }
+
 }

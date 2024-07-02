@@ -1,0 +1,69 @@
+{
+    "addField": {
+        "$addFields": {
+            "year": {
+                "$year": "$registrationDate"
+            },
+            "month": {
+                "$month": "$registrationDate"
+            },
+            "day": {
+                "$dayOfMonth": "$registrationDate"
+            }
+        }
+    },
+    "set": {
+        "$set": {
+            "quarter": {
+                "$cond": {
+                    "if": {
+                        "$lte": [
+                            "$month",
+                            3.0
+                        ]
+                    },
+                    "then": "Q1",
+                    "else": {
+                        "$cond": {
+                            "if": {
+                                "$lte": [
+                                    "$month",
+                                    6.0
+                                ]
+                            },
+                            "then": "Q2",
+                            "else": {
+                                "$cond": {
+                                    "if": {
+                                        "$lte": [
+                                            "$month",
+                                            9.0
+                                        ]
+                                    },
+                                    "then": "Q3",
+                                    "else": "Q4"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "match": {
+        "$match": {
+                    {{#day}}
+                    "day": {{day}},
+                    {{/day}}
+                    {{#month}}
+                    "month": {{month}},
+                    {{/month}}
+                    {{#year}}
+                    "year": {{year}},
+                    {{/year}}
+                    {{#quarter}}
+                    "quarter": "{{quarter}}"
+                    {{/quarter}}
+        }
+    }
+}
